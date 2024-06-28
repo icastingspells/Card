@@ -7,7 +7,7 @@ body{
 
 .main{
     margin: auto;
-    margin-top: 20%;
+    margin-top: 15%;
     width: 500px;
     height: 300px;
     background: rgba( 255, 255, 255, 0.15 );
@@ -57,5 +57,6 @@ body{
 }
 
 .text{
-    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6)
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
+    transition: all 0.2s ease-out;
 }

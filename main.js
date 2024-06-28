@@ -3,27 +3,26 @@ const text = document.querySelectorAll('.text');
 const tiltAmount = 70;
 const shadowStrength = 10;
 const originalShadow = "0px 2px 3px rgba(0, 0, 0, 0.6)";
+const originalTransform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
 
 let tiltX = 0;
 let tiltY = 0;
 let shadowX = 0;
 let shadowY = 0;
 
-block.addEventListener('mousemove', function(e) {
+this.addEventListener('mousemove', function(e) {
     updateTiltAndShadow(e);
+    
 });
-  
 
-
-
-
+animate();
 
 function updateTransform() {
-    
     block.style.transform = `perspective(1000px) rotateX(${tiltY}deg) rotateY(${tiltX}deg)`;
     text.forEach(text => {
     text.style.textShadow = `${shadowX}px ${shadowY}px 3px rgba(0, 0, 0, 0.6)`;
     });
+    
 }
   
   function updateTiltAndShadow(e) {
@@ -34,15 +33,17 @@ function updateTransform() {
   }
   
   function animate() {
+    
     requestAnimationFrame(animate);
     updateTransform();
+    
   }
-  
-  animate();
-
-  block.addEventListener('mouseleave', function() {
-    block.style.transform = 'none';
+ 
+  this.addEventListener('mouseleave', function() {
+    console.log("1");
+    block.style.transform = "none";
     text.forEach(text => {
-    text.style.textShadow = originalShadow;
+    text.style.textShadow = "0px 2px 3px rgba(0, 0, 0, 0.6)";
     });
   });
+  
